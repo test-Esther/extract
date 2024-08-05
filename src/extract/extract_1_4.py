@@ -30,7 +30,7 @@ def list2df(load_dt='20160101'):
     df=pd.DataFrame(l)
     return df
 
-def save2df(load_dt):
+def save2df(load_dt='20160101'):
     df=list2df(load_dt)
     df['load_dt']=load_dt
     return df
