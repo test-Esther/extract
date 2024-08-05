@@ -33,6 +33,7 @@ def list2df(load_dt='20160101'):
 def save2df(load_dt='20160101'):
     df=list2df(load_dt)
     df['load_dt']=load_dt
+    df.to_parquet('~/code/team_jkl/extract/extract_parquet/', partition_cols=['load_dt'])
     return df
 
 def apply_type2df(load_dt, path="~/code/team_jkl/extract/extract_parquet"):
