@@ -35,10 +35,10 @@ def list2df(load_dt='20160101', url_param={}):
 def save2df(load_dt='20160101', url_param={}):
     df=list2df(load_dt=load_dt, url_param=url_param)
     df['load_dt']=load_dt
-    df.to_parquet('~/code/team_jkl/extract/extract_parquet/', partition_cols=['load_dt'])
+    df.to_parquet('~/tmp/team_parquet/', partition_cols=['load_dt'])
     return df
 
-def apply_type2df(load_dt='20160101', path="~/code/team_jkl/extract/extract_parquet"):
+def apply_type2df(load_dt='20160101', path="~/tmp/team_parquet/"):
     df=pd.read_parquet(f'{path}/load_dt={load_dt}')
     num_cols=['rnum', 'rank', 'rankInten', 'salesAmt', 'audiCnt', 'audiAcc', 'scrnCnt', 'showCnt', 'salesShare', 'salesInten', 'salesChange', 'audiInten', 'audiChange']
     df[num_cols]=df[num_cols].apply(pd.to_numeric)
