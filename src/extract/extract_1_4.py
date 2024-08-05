@@ -6,7 +6,7 @@ def get_key():
     key=os.getenv("MOVIE_API_KEY")
     return key
 
-def gen_url(load_dt='20160101'):
+def gen_url(load_dt='20160101', url_param={}):
     base_url="http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
     key=get_key()
     url=f"{base_url}?key={key}&targetDt={load_dt}"
