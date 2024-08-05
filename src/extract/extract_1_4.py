@@ -10,6 +10,8 @@ def gen_url(load_dt='20160101'):
     base_url="http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
     key=get_key()
     url=f"{base_url}?key={key}&targetDt={load_dt}"
+    for k, v in url_param.items():
+        url=url=f"&{k}={v}"
     return url
 
 def req(load_dt='20160101', url_param={}):
