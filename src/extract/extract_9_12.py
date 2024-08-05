@@ -31,7 +31,7 @@ def list2df(load_dt='20160101'):
     return df
 
 def save2df(load_dt='20160101'):
-        """airflow 호출 지점"""
+    """airflow 호출 지점"""
     df = list2df(load_dt)
     df['load_dt'] = load_dt
     df.to_parquet('~/tmp/team_parquet/', partition_cols=['load_dt'])
