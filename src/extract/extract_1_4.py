@@ -33,7 +33,7 @@ def list2df(load_dt='20160101', url_param={}):
     return df
 
 def save2df(load_dt='20160101', url_param={}):
-    df=list2df(load_dt, url_param)
+    df=list2df(load_dt=load_dt, url_param=url_param)
     df['load_dt']=load_dt
     df.to_parquet('~/code/team_jkl/extract/extract_parquet/', partition_cols=['load_dt'])
     return df
